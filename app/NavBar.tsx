@@ -18,18 +18,16 @@ const NavBar = () => {
                 <FaBug />
             </Link>
             <ul className='flex space-x-6'>
-               
-                    {links.map((link) => (
-                        <li>
-                            <Link 
-                                key={link.href}
-                                className={`${link.href === currentPath ? 'text-zinc-900' : 'text-zinc-500' } 
-                                hover:text-zinc-800 transition-colors`}
-                                href={link.href}>
-                                    {link.label}
-                            </Link>
-                        </li>
-                    ))}
+                {links.map((link,index) => (
+                    <li key={index}>
+                        <Link 
+                            className={`${link.href === currentPath ? 'text-zinc-900' : 'text-zinc-500' } 
+                            hover:text-zinc-800 transition-colors`}
+                            href={link.href}>
+                                {link.label}
+                        </Link>
+                    </li>
+                ))}
             </ul>
         </nav >
     )
