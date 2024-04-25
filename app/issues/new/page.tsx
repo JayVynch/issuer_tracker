@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation';
 import { Resolver, zodResolver } from '@hookform/resolvers/zod';
 import { createIssueValidation } from '@/app/validationSchemas';
 import { z } from 'zod';
+import ErrorMessage from '@/app/components/ErrorMessage';
 
 type IssueFormInterface = z.infer<typeof createIssueValidation>
 
@@ -40,8 +41,8 @@ const NewIssue = () => {
                 } )} 
                 className='space-y-3'
             >
-                <TextField.Root placeholder='title' {...register('title')}></TextField.Root>
-                { errors.title && <Text color='red' as='p'>{errors.title.message}</Text> }
+                <TextField.Root placeholder="Title" {...register('title')}></TextField.Root>
+                <ErrorMessage>{errors.title?.message}</ErrorMessage>
 
                 <Controller 
                     name='description'
@@ -49,7 +50,7 @@ const NewIssue = () => {
                     render={ ({field}) => <SimpleMDE placeholder="Description" {...field} /> }
                 />
 
-                { errors.description && <Text color='red' as='p'>{errors.description.message}</Text> }
+                <ErrorMessage>{errors.description?.message}</ErrorMessage> 
                 
                 <Button>Create New Issue</Button>
             </form>
