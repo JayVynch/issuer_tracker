@@ -7,7 +7,7 @@ const loading = () => {
     <Box className='max-w-xl'>
         <Skeleton />
         <Flex className='space-x-3 justify-center items-center' my="2">
-            <Skeleton width="3rem;" />
+            <Skeleton width="3rem" />
             <Skeleton width="7rem"/>
         </Flex>
 
